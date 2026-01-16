@@ -1,17 +1,13 @@
 import 'dotenv/config'
 import express from 'express'
 import AuthRouter from './lib/routes/auth_route.js';
-
+import ProductRouter from './lib/routes/v1/product_route.js';
 
 const app = express();
 app.use(express.json());
 app.use(AuthRouter);
+app.use(ProductRouter);
 
-app.get('/',(req,res)=>{
-    res.json({
-        'happy':"tolearn"
-    });
-})
 
 const port = process.env.PORT || 4000;
 
